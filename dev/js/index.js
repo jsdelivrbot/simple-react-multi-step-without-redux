@@ -1,23 +1,27 @@
-import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from "react-dom";
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise';
-import createLogger from 'redux-logger';
-import allReducers from './reducers';
-import App from './components/App';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import {BrowserRouter , Route ,Switch} from 'react-router-dom';
+import App from './components/app';
+import StepA from './components/stepA';
+import StepB from './components/stepB';
+import StepC from './components/stepC';
+import reducers from './reducers';
 
-const logger = createLogger();
-const store = createStore(
-    allReducers,
-    applyMiddleware(thunk, promise, logger)
-);
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
-);
+  <Provider store={createStoreWithMiddleware(reducers)}>
+  <BrowserRouter>
+    <div>    
+      <Switch>   
+        <Route path="/stepb" component={StepB} />
+        <Route path="/stepc" component={StepC} />
+        <Route path="/"  component={StepA} /> 
+      </Switch>
+    </div> 
+
+ </BrowserRouter>
+ </Provider>
+  , document.querySelector('.container'));
