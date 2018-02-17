@@ -25,6 +25,7 @@ export default class App extends Component {
 
    this.firstName=this.firstName.bind(this);
    this.lastName=this.lastName.bind(this);
+   this.phone=this.phone.bind(this);
    this.address=this.address.bind(this);
 
    this.restart=this.restart.bind(this);
@@ -35,7 +36,7 @@ export default class App extends Component {
       account:true, social:false, personal: false,
       email:"", password:"", confirmPassword:"",
       twitter:"", facebook:"", google:"",
-      lastName:"", firstName:"", address:""
+      lastName:"", firstName:"", phone:"", address:""
     });
   }
 
@@ -74,6 +75,9 @@ export default class App extends Component {
    firstName(e) {
      this.setState({firstName: e.target.value});
    }
+   phone(e) {
+     this.setState({phone: e.target.value});
+   }
    lastName(e) {
      this.setState({lastName: e.target.value});
    }
@@ -98,7 +102,7 @@ export default class App extends Component {
          <input id="email" type="email" placeholder="Email" onChange={this.email} value={this.state.email} required/>
          <input type="password" placeholder="Password" onChange={this.password} value={this.state.password} required />
          <input type="Password" placeholder="Confirm Password" onChange={this.confirmPassword} value={this.state.confirmPassword} required/>
-         <button className="button" type="submit" >Next</button>
+         <button className="button accountBtn" type="submit" >Next</button>
        </div>
      </form>
      </div>  
@@ -138,6 +142,7 @@ export default class App extends Component {
         <h6>We will never sell it</h6>
          <input type="text" placeholder="First Name" onChange={this.firstName} value={this.state.firstName} required/>
          <input type="text" placeholder="Last Name" onChange={this.lastName} value={this.state.lastName} required/>
+         <input type="number" placeholder="Phone" onChange={this.phone} value={this.state.phone} required/>
          <input type="text" placeholder="Address" onChange={this.address} value={this.state.address} required/>
          <button  className="button" onClick={this.step2}>Back</button>
           <button className="button">Submit</button>
