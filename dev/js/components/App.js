@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import {Link} from 'react-router-dom';
 require('../../scss/style.scss');
+
 export default class App extends Component {
   constructor(props){
     super(props);
@@ -21,7 +22,7 @@ export default class App extends Component {
         type="text";
        
       return(
-       <div className='form-group' key={placeholder.index} > 
+      <div className='form-group' key={placeholder.index} > 
       <input  className='form-control' required key={placeholder.index} placeholder={placeholder.key} 
       value={this.props.values[placeholder.index].key} 
       type={type}

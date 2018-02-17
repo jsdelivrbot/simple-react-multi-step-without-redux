@@ -31,7 +31,7 @@ export  class StepA extends Component{
            
           <div className="form">
             <div className='form-group'>
-          <label  className="control-label">CREATE YOUR ACCOUNT</label>
+          <h5>CREATE YOUR ACCOUNT</h5>
           </div>
             {/* <h5>CREATE YOUR ACCOUNT</h5> */}
             <App placeholders={[{index:0,key:"Email"},{key:"Password",index:1},{key:"Confirm Password",index:2}]}

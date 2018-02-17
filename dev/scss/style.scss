@@ -28,8 +28,9 @@ input {
 }
 
 .button {
+  margin-right: 20px;
   position: relative;
-  left:200px;
+  left:110px;
   width: 100px;
   background: #27AE60;
   font-weight: bold;
@@ -56,9 +57,10 @@ body {
   overflow: hidden;
   /*CSS counters to number the steps*/
   counter-reset: step;
+  text-align: center;
   position: relative;
   top:60px;
-  left:30%;
+  left:32%;
   width:35%;
 }
 #progressbar li {
@@ -69,6 +71,7 @@ body {
   width: 33.33%;
   float: left;
   position: relative;
+
 }
 #progressbar li:before {
   content: counter(step);
