@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+require('../../scss/style.scss');
 
 export default class App extends Component {
  constructor(props){
@@ -73,35 +74,40 @@ export default class App extends Component {
  render() {
    var stepA = (
      <form onSubmit={this.step2}>
-       <div>
+       <div className="form">
+        <h5>CREATE YOUR ACCOUNT</h5>
          <input id="email" type="email" placeholder="Email" onChange={this.email} value={this.state.email} required/>
          <input type="password" placeholder="Password" onChange={this.password} value={this.state.password} required />
          <input type="Password" placeholder="Confirm Password" onChange={this.confirmPassword} value={this.state.confirmPassword} required/>
-         <button type="submit" >Next</button>
+         <button className="button" type="submit" >Next</button>
        </div>
      </form>
    );
 
    var stepB = (
      <form onSubmit={this.step3}>
-       <div>
+       <div className="form">
+        <h5>SOCIAL PROFILES</h5>
+        <h6>Your preference on the social network</h6>
          <input type="text" placeholder="Name" onChange={this.name} value={this.state.name} required/>
          <input type="text" placeholder="Age" onChange={this.age} value={this.state.age} required/>
          <input type="text" placeholder="sex" onChange={this.sex} value={this.state.sex} required/>
-         <button onClick={this.step1}>Back</button>
-         <button  type="submit" >Next</button>
+         <button  className="button" onClick={this.step1}>Back</button>
+         <button  className="button" type="submit" >Next</button>
        </div>
      </form>
    );
 
    var stepC = (
      <form onSubmit={this.step1}>
-       <div>
+       <div className="form">
+        <h5>PERSONAL DETAILS</h5>
+        <h6>We will never sell it</h6>
          <input type="text" placeholder="fb" onChange={this.fb} value={this.state.fb} required/>
          <input type="text" placeholder="twi" onChange={this.tw} value={this.state.tw} required/>
          <input type="text" placeholder="gplus" onChange={this.gp} value={this.state.gp} required/>
-         <button  onClick={this.step2}>Back</button>
-          <button>Submit</button>
+         <button  className="button" onClick={this.step2}>Back</button>
+          <button className="button">Submit</button>
        </div>
      </form>
    );
