@@ -27,7 +27,18 @@ export default class App extends Component {
    this.tw=this.tw.bind(this);
    this.gp=this.gp.bind(this);
 
+   this.restart=this.restart.bind(this);
+
  }
+  restart(){
+    this.setState( {
+      stepa:true, stepb:false, stepc: false,
+      email:"", password:"", confirmPassword:"",
+      name:"", age:"", sex:"",
+      tw:"", fb:"", gp:""
+    });
+  }
+
   step1() {
     this.setState({stepa:true, stepb:false, stepc: false});   
   }
@@ -73,6 +84,13 @@ export default class App extends Component {
 
  render() {
    var stepA = (
+    <div className="progressDiv">
+    <ul id="progressbar">
+           <li className="active">Account Setup</li>
+           <li >Social Profiles</li>
+           <li>Personal Details</li>
+         </ul>   
+       
      <form onSubmit={this.step2}>
        <div className="form">
         <h5>CREATE YOUR ACCOUNT</h5>
@@ -82,9 +100,16 @@ export default class App extends Component {
          <button className="button" type="submit" >Next</button>
        </div>
      </form>
+     </div>  
    );
 
    var stepB = (
+    <div className="progressDiv">
+    <ul id="progressbar">
+           <li className="active">Account Setup</li>
+           <li className="active">Social Profiles</li>
+           <li>Personal Details</li>
+         </ul>   
      <form onSubmit={this.step3}>
        <div className="form">
         <h5>SOCIAL PROFILES</h5>
@@ -96,10 +121,17 @@ export default class App extends Component {
          <button  className="button" type="submit" >Next</button>
        </div>
      </form>
+     </div>
    );
 
    var stepC = (
-     <form onSubmit={this.step1}>
+    <div className="progressDiv">
+    <ul id="progressbar">
+           <li className="active">Account Setup</li>
+           <li className="active">Social Profiles</li>
+           <li className="active">Personal Details</li>
+         </ul>   
+     <form onSubmit={this.restart}>
        <div className="form">
         <h5>PERSONAL DETAILS</h5>
         <h6>We will never sell it</h6>
@@ -110,6 +142,7 @@ export default class App extends Component {
           <button className="button">Submit</button>
        </div>
      </form>
+     </div>
    );
 
    return (
