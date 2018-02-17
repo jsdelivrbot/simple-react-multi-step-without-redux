@@ -5,10 +5,10 @@ export default class App extends Component {
  constructor(props){
    super(props);
    this.state= {
-     stepa:true, stepb:false, stepc: false,
+     account:true, social:false, personal: false,
      email:"", password:"", confirmPassword:"",
-     name:"", age:"", sex:"",
-     tw:"", fb:"", gp:""
+     twitter:"", facebook:"", google:"",
+     firstName:"", lastName:"", address:""
    }
 
    this.step1=this.step1.bind(this);
@@ -19,36 +19,36 @@ export default class App extends Component {
    this.password=this.password.bind(this);
    this.confirmPassword=this.confirmPassword.bind(this);
 
-   this.name=this.name.bind(this);
-   this.age=this.age.bind(this);
-   this.sex=this.sex.bind(this);
+   this.twitter=this.twitter.bind(this);
+   this.facebook=this.facebook.bind(this);
+   this.google=this.google.bind(this);
 
-   this.fb=this.fb.bind(this);
-   this.tw=this.tw.bind(this);
-   this.gp=this.gp.bind(this);
+   this.firstName=this.firstName.bind(this);
+   this.lastName=this.lastName.bind(this);
+   this.address=this.address.bind(this);
 
    this.restart=this.restart.bind(this);
 
  }
   restart(){
     this.setState( {
-      stepa:true, stepb:false, stepc: false,
+      account:true, social:false, personal: false,
       email:"", password:"", confirmPassword:"",
-      name:"", age:"", sex:"",
-      tw:"", fb:"", gp:""
+      twitter:"", facebook:"", google:"",
+      lastName:"", firstName:"", address:""
     });
   }
 
   step1() {
-    this.setState({stepa:true, stepb:false, stepc: false});   
+    this.setState({account:true, social:false, personal: false});   
   }
    
   step2() {
     // if((this.state.password)===(this.state.confirmPassword))
-      this.setState({stepa:false, stepb:true, stepc: false});
+      this.setState({account:false, social:true, personal: false});
   }
    step3() {
-      this.setState({stepb:false, stepa:false, stepc: true});
+      this.setState({social:false, account:false, personal: true});
    }
 
    email(e) {
@@ -61,29 +61,29 @@ export default class App extends Component {
      this.setState({confirmPassword: e.target.value});
    }
 
-   name(e) {
-     this.setState({name: e.target.value});
+   twitter(e) {
+     this.setState({twitter: e.target.value});
    }
-   age(e) {
-     this.setState({age: e.target.value});
+   facebook(e) {
+     this.setState({facebook: e.target.value});
    }
-   sex(e) {
-     this.setState({sex: e.target.value});
+   google(e) {
+     this.setState({google: e.target.value});
    }
  
-   fb(e) {
-     this.setState({fb: e.target.value});
+   firstName(e) {
+     this.setState({firstName: e.target.value});
    }
-   tw(e) {
-     this.setState({tw: e.target.value});
+   lastName(e) {
+     this.setState({lastName: e.target.value});
    }
-   gp(e) {
-     this.setState({gp: e.target.value});
+   address(e) {
+     this.setState({address: e.target.value});
    }
  
 
  render() {
-   var stepA = (
+   var accountSetup = (
     <div className="progressDiv">
     <ul id="progressbar">
            <li className="active">Account Setup</li>
@@ -103,7 +103,7 @@ export default class App extends Component {
      </div>  
    );
 
-   var stepB = (
+   var socialProfiles = (
     <div className="progressDiv">
     <ul id="progressbar">
            <li className="active">Account Setup</li>
@@ -114,9 +114,9 @@ export default class App extends Component {
        <div className="form">
         <h5>SOCIAL PROFILES</h5>
         <h6>Your preference on the social network</h6>
-         <input type="text" placeholder="Name" onChange={this.name} value={this.state.name} required/>
-         <input type="text" placeholder="Age" onChange={this.age} value={this.state.age} required/>
-         <input type="text" placeholder="sex" onChange={this.sex} value={this.state.sex} required/>
+         <input type="text" placeholder="Twitter" onChange={this.twitter} value={this.state.twitter} required/>
+         <input type="text" placeholder="Facebook" onChange={this.facebook} value={this.state.facebook} required/>
+         <input type="text" placeholder="Google Plus" onChange={this.google} value={this.state.google} required/>
          <button  className="button" onClick={this.step1}>Back</button>
          <button  className="button" type="submit" >Next</button>
        </div>
@@ -124,7 +124,7 @@ export default class App extends Component {
      </div>
    );
 
-   var stepC = (
+   var personalDetails = (
     <div className="progressDiv">
     <ul id="progressbar">
            <li className="active">Account Setup</li>
@@ -135,9 +135,9 @@ export default class App extends Component {
        <div className="form">
         <h5>PERSONAL DETAILS</h5>
         <h6>We will never sell it</h6>
-         <input type="text" placeholder="fb" onChange={this.fb} value={this.state.fb} required/>
-         <input type="text" placeholder="twi" onChange={this.tw} value={this.state.tw} required/>
-         <input type="text" placeholder="gplus" onChange={this.gp} value={this.state.gp} required/>
+         <input type="text" placeholder="First Name" onChange={this.firstName} value={this.state.firstName} required/>
+         <input type="text" placeholder="Last Name" onChange={this.lastName} value={this.state.lastName} required/>
+         <input type="text" placeholder="Address" onChange={this.address} value={this.state.address} required/>
          <button  className="button" onClick={this.step2}>Back</button>
           <button className="button">Submit</button>
        </div>
@@ -147,9 +147,9 @@ export default class App extends Component {
 
    return (
      <div>
-       {this.state.stepa ? stepA : ''}
-       {this.state.stepb ? stepB : ''}
-       {this.state.stepc ? stepC : ''}
+       {this.state.account ? accountSetup : ''}
+       {this.state.social ? socialProfiles : ''}
+       {this.state.personal ? personalDetails : ''}
      </div>
    );
  }
