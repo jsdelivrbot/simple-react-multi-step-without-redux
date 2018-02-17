@@ -94,6 +94,7 @@ export default class App extends Component {
      <form onSubmit={this.step2}>
        <div className="form">
         <h5>CREATE YOUR ACCOUNT</h5>
+        <h6>This is step 1</h6>
          <input id="email" type="email" placeholder="Email" onChange={this.email} value={this.state.email} required/>
          <input type="password" placeholder="Password" onChange={this.password} value={this.state.password} required />
          <input type="Password" placeholder="Confirm Password" onChange={this.confirmPassword} value={this.state.confirmPassword} required/>
