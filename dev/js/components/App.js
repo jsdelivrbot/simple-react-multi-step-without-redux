@@ -8,7 +8,7 @@ export default class App extends Component {
      account:true, social:false, personal: false,
      email:"", password:"", confirmPassword:"",
      twitter:"", facebook:"", google:"",
-     firstName:"", lastName:"", address:""
+     firstName:"", lastName:"", phone:"", address:""
    }
 
    this.step1=this.step1.bind(this);
@@ -45,8 +45,7 @@ export default class App extends Component {
   }
    
   step2() {
-    // if((this.state.password)===(this.state.confirmPassword))
-      this.setState({account:false, social:true, personal: false});
+    this.setState({account:false, social:true, personal: false});
   }
    step3() {
       this.setState({social:false, account:false, personal: true});
